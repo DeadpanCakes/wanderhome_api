@@ -26,3 +26,10 @@ class Personality(Model):
 
     def __str__(self):
         return self.name
+
+class Appearance(Model):
+    name = CharField(max_length=50)
+    playbook = ForeignKey(Playbook, on_delete=CASCADE)
+
+    def __str__(self):
+        return self.name
