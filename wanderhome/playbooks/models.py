@@ -75,8 +75,8 @@ class SignatureMoves(Model):
         return self.prompt
 
 
-class SignatureMoveOptions(Option):
-    signatureMoves = ForeignKey(SignatureMoves, on_delete=CASCADE)
+class SignatureMoveOptions(Model):
+    name = CharField(max_length=200)
 
     def __str_(self):
-        return self.text
+        return self.name
