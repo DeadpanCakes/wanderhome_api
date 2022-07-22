@@ -4,6 +4,7 @@ from . import views
 
 router = routers.DefaultRouter()
 router.register(r"traits", views.TraitViewSet)
+router.register(r"moves", views.MoveViewSet)
 
 urlpatterns = [
     path("", include(router.urls))
