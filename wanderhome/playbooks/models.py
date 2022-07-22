@@ -1,3 +1,4 @@
+from turtle import ondrag
 from django.db.models import Model, CharField, ForeignKey, CASCADE
 
 from wanderhome.options.models import Option
@@ -8,8 +9,6 @@ from wanderhome.options.models import Option
 class Playbook(Model):
     name = CharField(max_length=25)
     desc = CharField(max_length=200)
-    personality_prompt = CharField(max_length=200)
-    history_prompt = CharField(max_length=400)
 
     def __str__(self):
         return self.name
@@ -24,8 +23,16 @@ class Animal(Model):
 
 
 class Personality(Model):
-    name = CharField(max_length=25)
+    personality_prompt = CharField(max_length=200)
     playbook = ForeignKey(Playbook, on_delete=CASCADE)
+
+    def __str__(self):
+        return self.name
+
+
+class PersonalityOption(Model):
+    name = CharField(max_length=30)
+    personality = ForeignKey(Personality, on_delete=CASCADE)
 
     def __str__(self):
         return self.name
@@ -39,8 +46,16 @@ class Appearance(Model):
         return self.name
 
 
-class History(Option):
+class History(Model):
+    prompt: CharField(max_length=400)
     playbook = ForeignKey(Playbook, on_delete=CASCADE)
+
+    def __str__(self):
+        return self.prompt
+
+
+class HistoryOptions(Option):
+    history = ForeignKey(History, on_delete=CASCADE)
 
     def __str__(self):
         return self.text
