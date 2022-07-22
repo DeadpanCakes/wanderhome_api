@@ -59,3 +59,10 @@ class HistoryOptions(Option):
 
     def __str__(self):
         return self.text
+
+
+class Relationship(Model):
+    prompt = CharField(max_length=50)
+
+    def __str__(self):
+        return self.prompt
