@@ -1,4 +1,3 @@
-from turtle import ondrag
 from django.db.models import Model, CharField, ForeignKey, CASCADE
 
 from wanderhome.options.models import Option
@@ -66,3 +65,18 @@ class Relationship(Model):
 
     def __str__(self):
         return self.prompt
+
+
+class SignatureMoves(Model):
+    prompt = CharField(max_length=400)
+    playbook = ForeignKey(Playbook, on_delete=CASCADE)
+
+    def __str__(self):
+        return self.prompt
+
+
+class SignatureMoveOptions(Option):
+    signatureMoves = ForeignKey(SignatureMoves, on_delete=CASCADE)
+
+    def __str_(self):
+        return self.text
