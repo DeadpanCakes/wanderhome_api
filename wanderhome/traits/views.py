@@ -1,9 +1,9 @@
 from django.shortcuts import render
-from .models import Trait
+from . import models
 from rest_framework import viewsets
-from wanderhome.traits.serializers import TraitsSerializer
+from traits.serializers import TraitsSerializer
 
 # Create your views here.
 class TraitViewSet(viewsets.ModelViewSet):
-    queryset = Trait.objects.all()
+    queryset = models.Trait.objects.all()
     serializer_class = TraitsSerializer
