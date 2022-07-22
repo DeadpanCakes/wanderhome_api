@@ -1,7 +1,7 @@
-from .models import Trait
+from . import models
 from rest_framework import serializers
 
 class TraitsSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
-        model = Trait
-        fields = ["name", "desc", "options"]
+        model = models.Trait
+        fields = ["url", "name", "description", "options"]
