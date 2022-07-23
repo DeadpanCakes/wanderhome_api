@@ -7,25 +7,25 @@ from . import models
 
 
 class CategoryViewSet(ModelViewSet):
-    queryset = models.Category
+    queryset = models.Category.objects.all()
     serializer_class = serializers.CategoriesSerializer
 
 
 class NatureViewSet(ModelViewSet):
-    queryset = models.Nature
+    queryset = models.Nature.objects.all()
     serializer_class = serializers.NaturesSerializer
 
 
 class AestheticViewSet(ModelViewSet):
-    queryset = models.Aesthetic
+    queryset = models.Aesthetic.objects.all()
     serializer_class = serializers.AestheticsSerializer
 
 
 class MoveViewSet(ModelViewSet):
-    queryset = models.Move
+    queryset = models.Move.objects.all()
     serializer_class = serializers.MovesSerializer
 
 
 class LoreViewSet(ModelViewSet):
-    queryset = models.Lore
+    queryset = models.Lore.objects.all()
     serializer_class = serializers.LoreSerializer
