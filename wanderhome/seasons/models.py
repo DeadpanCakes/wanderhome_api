@@ -19,10 +19,27 @@ class Month(Model):
         return self.name
 
 
+class Lack(Model):
+    text = CharField(max_length=400)
+    month = ForeignKey(Month, on_delete=CASCADE)
+
+    def __str__(self):
+        return self.text
+
+
+class Sign(Model):
+    text = CharField(max_length=400)
+    month = ForeignKey(Month, on_delete=CASCADE)
+
+    def __str__(self):
+        return self.text
+
+
 class Event(Model):
     name = CharField(max_length=100)
     description = CharField(max_length=400)
     trigger = CharField(max_length=400)
+    month = ForeignKey(Month, on_delete=CASCADE)
 
     def __str__(self):
         return self.name
@@ -30,6 +47,7 @@ class Event(Model):
 
 class Effect(Model):
     text = CharField(max_length=400)
+    event = ForeignKey(Event, on_delete=CASCADE)
 
     def __str__(self):
         return self.text
@@ -53,7 +71,7 @@ class Holiday(Model):
 
 class Tradition(Model):
     text = CharField(max_length=400)
-    holidy = ForeignKey(Holiday, on_delete=CASCADE)
+    holiday = ForeignKey(Holiday, on_delete=CASCADE)
 
     def __str__(self):
         return self.text
