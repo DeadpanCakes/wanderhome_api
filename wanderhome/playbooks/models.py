@@ -80,3 +80,11 @@ class SignatureMoveOptions(Model):
 
     def __str_(self):
         return self.name
+
+
+class SeasonalMoves(Model):
+    name = CharField(max_length=200)
+    playbook = ForeignKey(Playbook, on_delete=CASCADE)
+
+    def __str__(self):
+        return self.name
