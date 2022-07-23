@@ -1,5 +1,5 @@
 from django.db.models import Model, CharField, ForeignKey, CASCADE
-from options import Option
+from options.models import Option
 
 # Create your models here.
 
