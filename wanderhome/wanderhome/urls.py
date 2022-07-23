@@ -17,9 +17,11 @@ from django.contrib import admin
 from django.urls import path, include
 from traits import urls as traitsUrl
 from playbooks import urls as playbookUrl
+from natures import urls as natureUrl
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("", include(traitsUrl)),
-    path("", include(playbookUrl))
+    path("", include(playbookUrl)),
+    path("", include(natureUrl))
 ]
