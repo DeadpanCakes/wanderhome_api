@@ -11,7 +11,7 @@ class Nature(Model):
         return self.name
 
 
-class Categories(Model):
+class Category(Model):
     name = CharField(max_length=20)
     nature = ForeignKey(Nature, on_delete=CASCADE)
 
