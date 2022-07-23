@@ -1,4 +1,3 @@
-from django import views
 from django.shortcuts import render
 from .models import Category, Trait, Move
 from rest_framework import viewsets
