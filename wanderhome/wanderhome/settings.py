@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     "django_rename_app",
     "rest_framework",
+    "playbooks",
     "traits",
     "options",
 ]
