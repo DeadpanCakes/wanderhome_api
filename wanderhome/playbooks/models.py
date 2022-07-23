@@ -63,11 +63,11 @@ class HistoryOption(Option):
 
 
 class Relationship(Model):
-    name = CharField(max_length=100)
+    prompt = CharField(max_length=100)
     playbook = ForeignKey(Playbook, on_delete=CASCADE)
 
     def __str__(self):
-        return self.name
+        return self.prompt
 
 
 class SignatureMove(Model):
