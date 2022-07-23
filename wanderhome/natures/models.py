@@ -4,27 +4,26 @@ from options.models import Option
 # Create your models here.
 
 
-class Nature(Model):
+class Category(Model):
     name = CharField(max_length=20)
 
     def __str__(self):
         return self.name
 
 
-class Category(Model):
+class Nature(Model):
     name = CharField(max_length=20)
-    nature = ForeignKey(Nature, on_delete=CASCADE)
+    category = ForeignKey(Category, on_delete=CASCADE)
 
     def __str__(self):
         return self.name
 
 
 class Aesthetic(Option):
-    name = CharField(max_length=100)
     nature = ForeignKey(Nature, on_delete=CASCADE)
 
     def __str__(self):
-        return self.name
+        return self.text
 
 
 class Move(Model):
@@ -36,8 +35,7 @@ class Move(Model):
 
 
 class Lore(Option):
-    prompt = CharField(max_length=200)
     nature = ForeignKey(Nature, on_delete=CASCADE)
 
     def __str__(self):
-        return self.prompt
+        return self.text
