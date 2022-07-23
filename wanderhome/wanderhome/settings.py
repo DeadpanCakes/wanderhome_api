@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     "rest_framework",
     "playbooks",
     "traits",
+    "natures",
     "options",
 ]
 
