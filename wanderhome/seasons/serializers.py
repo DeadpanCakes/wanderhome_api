@@ -78,7 +78,8 @@ class MonthsSerializer(HyperlinkedModelSerializer):
 
 class SeasonsSerializer(HyperlinkedModelSerializer):
     month_set = MonthsSerializer(many=True, read_only=True)
+    holiday_set = HolidaysSerializer(many=True, read_only=True)
 
     class Meta:
         model = models.Season
-        fields = ["url", "name", "month_set"]
+        fields = ["url", "name", "month_set", "holiday_set"]
