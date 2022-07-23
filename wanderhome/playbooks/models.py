@@ -1,12 +1,14 @@
 from django.db.models import Model, CharField, ForeignKey, CASCADE
 
-from wanderhome.options.models import Option
+from options.models import Option
 
 # Create your models here.
 
+app_name = "playbooks"
+
 
 class Playbook(Model):
-    name = CharField(max_length=25)
+    name = CharField(max_length=50)
     desc = CharField(max_length=200)
 
     def __str__(self):
@@ -22,15 +24,15 @@ class Animal(Model):
 
 
 class Personality(Model):
-    personality_prompt = CharField(max_length=200)
+    prompt = CharField(max_length=200)
     playbook = ForeignKey(Playbook, on_delete=CASCADE)
 
     def __str__(self):
-        return self.name
+        return self.prompt
 
 
 class PersonalityOption(Model):
-    name = CharField(max_length=30)
+    name = CharField(max_length=100)
     personality = ForeignKey(Personality, on_delete=CASCADE)
 
     def __str__(self):
@@ -38,7 +40,7 @@ class PersonalityOption(Model):
 
 
 class Appearance(Model):
-    name = CharField(max_length=50)
+    name = CharField(max_length=100)
     playbook = ForeignKey(Playbook, on_delete=CASCADE)
 
     def __str__(self):
@@ -46,28 +48,6 @@ class Appearance(Model):
 
 
 class History(Model):
-    prompt: CharField(max_length=400)
-    playbook = ForeignKey(Playbook, on_delete=CASCADE)
-
-    def __str__(self):
-        return self.prompt
-
-
-class HistoryOptions(Option):
-    history = ForeignKey(History, on_delete=CASCADE)
-
-    def __str__(self):
-        return self.text
-
-
-class Relationship(Model):
-    prompt = CharField(max_length=50)
-
-    def __str__(self):
-        return self.prompt
-
-
-class SignatureMoves(Model):
     prompt = CharField(max_length=400)
     playbook = ForeignKey(Playbook, on_delete=CASCADE)
 
@@ -75,14 +55,30 @@ class SignatureMoves(Model):
         return self.prompt
 
 
-class SignatureMoveOptions(Model):
-    name = CharField(max_length=200)
+class HistoryOption(Option):
+    history = ForeignKey(History, on_delete=CASCADE)
 
-    def __str_(self):
+    def __str__(self):
+        return self.text
+
+
+class Relationship(Model):
+    name = CharField(max_length=100)
+    playbook = ForeignKey(Playbook, on_delete=CASCADE)
+
+    def __str__(self):
         return self.name
 
 
-class SeasonalMoves(Model):
+class SignatureMove(Model):
+    name = CharField(max_length=200)
+    playbook = ForeignKey(Playbook, on_delete=CASCADE)
+
+    def __str__(self):
+        return self.name
+
+
+class SeasonalMove(Model):
     name = CharField(max_length=200)
     playbook = ForeignKey(Playbook, on_delete=CASCADE)
 
