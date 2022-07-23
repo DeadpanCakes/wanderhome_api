@@ -29,7 +29,7 @@ class NaturesSerializer(HyperlinkedModelSerializer):
 
     class Meta:
         model = models.Nature
-        fields = ["url", "name", "lore_set"]
+        fields = ["url", "name", "aesthetic_set", "move_set", "lore_set"]
 
 
 class CategoriesSerializer(HyperlinkedModelSerializer):
