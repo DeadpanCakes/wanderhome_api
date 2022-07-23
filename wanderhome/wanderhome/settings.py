@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     "playbooks",
     "traits",
     "natures",
+    "seasons",
     "options",
 ]
 
