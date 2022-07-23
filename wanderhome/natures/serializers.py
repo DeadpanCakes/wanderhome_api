@@ -6,7 +6,8 @@ from . import models
 class AestheticsSerializer(HyperlinkedModelSerializer):
     class Meta:
         model = models.Aesthetic
-        fields = ["url", "name"]
+        fields = ["url", "text", "is_magical", "is_traumatized", "non_magic_text",
+                  "non_traumatized_text", "non_traumatized_or_magic_text"]
 
 
 class MovesSerializer(HyperlinkedModelSerializer):
