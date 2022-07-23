@@ -16,8 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from traits import urls as traitsUrl
+from playbooks import urls as playbookUrl
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("", include(traitsUrl))
+    path("", include(traitsUrl)),
+    path("", include(playbookUrl))
 ]
