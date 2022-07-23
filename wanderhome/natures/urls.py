@@ -9,4 +9,4 @@ router.register(r"aesthetics", views.AestheticViewSet)
 router.register(r"moves", views.MoveViewSet)
 router.register(r"lore", views.LoreViewSet)
 
-urlpatterns = [path("", include(router))]
+urlpatterns = [path("", include(router.urls))]
