@@ -1,59 +1,70 @@
 from . import models, serializers
-from rest_framework.viewsets import ModelViewSet
+from rest_framework import viewsets, permissions
 
 # Create your views here.
 
 
-class SeasonViewSet(ModelViewSet):
+class SeasonViewSet(viewsets.ModelViewSet):
     queryset = models.Season.objects.all()
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     serializer_class = serializers.SeasonsSerializer
 
 
-class MonthViewSet(ModelViewSet):
+class MonthViewSet(viewsets.ModelViewSet):
     queryset = models.Month.objects.all()
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     serializer_class = serializers.MonthsSerializer
 
 
-class LackViewSet(ModelViewSet):
+class LackViewSet(viewsets.ModelViewSet):
     queryset = models.Lack.objects.all()
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     serializer_class = serializers.LacksSerializer
 
 
-class SignViewSet(ModelViewSet):
+class SignViewSet(viewsets.ModelViewSet):
     queryset = models.Sign.objects.all()
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     serializer_class = serializers.SignsSerializer
 
 
-class EventViewSet(ModelViewSet):
+class EventViewSet(viewsets.ModelViewSet):
     queryset = models.Event.objects.all()
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     serializer_class = serializers.EffectsSerializer
 
 
-class EffectViewSet(ModelViewSet):
+class EffectViewSet(viewsets.ModelViewSet):
     queryset = models.Effect.objects.all()
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     serializer_class = serializers.EffectsSerializer
 
 
-class EffectMoveViewSet(ModelViewSet):
+class EffectMoveViewSet(viewsets.ModelViewSet):
     queryset = models.EffectMove.objects.all()
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     serializer_class = serializers.EffectMovesSerializer
 
 
-class HolidayViewSet(ModelViewSet):
+class HolidayViewSet(viewsets.ModelViewSet):
     queryset = models.Holiday.objects.all()
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     serializer_class = serializers.HolidaysSerializer
 
 
-class TraditionViewSet(ModelViewSet):
+class TraditionViewSet(viewsets.ModelViewSet):
     queryset = models.Tradition.objects.all()
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     serializer_class = serializers.TraditionsSerializer
 
 
-class HolidayMoveViewSet(ModelViewSet):
+class HolidayMoveViewSet(viewsets.ModelViewSet):
     queryset = models.HolidayMove.objects.all()
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     serializer_class = serializers.HolidayMovesSerializer
 
 
-class CustomViewSet(ModelViewSet):
+class CustomViewSet(viewsets.ModelViewSet):
     queryset = models.Custom.objects.all()
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     serializer_class = serializers.CustomsSerializer
