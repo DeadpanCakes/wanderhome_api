@@ -10,6 +10,7 @@ django-rename-app = "*"
 djangorestframework-simplejwt = "*"
 psycopg2-binary = "*"
 gunicorn = "*"
+build = "*"
 
 [dev-packages]
 autopep8 = "*"

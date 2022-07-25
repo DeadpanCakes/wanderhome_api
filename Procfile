@@ -1,1 +1,1 @@
-web: gunicorn wanderhome_api.wanderhome.wsgi --python wanderhome_api
+web: gunicorn wanderhome_api.wanderhome.wsgi --python wanderhome
