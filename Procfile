@@ -1,1 +1,1 @@
-web: gunicorn wanderhome.wsgi
+web: gunicorn wanderhome wanderhome.wsgi
