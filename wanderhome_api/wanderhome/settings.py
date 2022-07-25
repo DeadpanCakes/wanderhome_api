@@ -29,7 +29,7 @@ DEBUG = False
 DEBUG_PROPAGATE_EXCEPTIONS = True
 
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["https://wanderhome.herokuapp.com/"]
 
 
 # Application definition
