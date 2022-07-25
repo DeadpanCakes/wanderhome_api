@@ -28,5 +28,5 @@ urlpatterns = [
     path("", include(natureUrl)),
     path("", include(seasonUrl)),
     path("login/", TokenObtainPairView.as_view(), name="token_obtain_pair"),
-    path("refresh", TokenRefreshView.as_view(), name="token_refresh")
+    path("refresh/", TokenRefreshView.as_view(), name="token_refresh")
 ]
