@@ -7,7 +7,8 @@ app_name = "traits"
 
 
 class TraitCategory(models.Model):
-    name = models.CharField(max_length=20)
+    id = models.AutoField(primary_key=True)
+    name = models.CharField(max_length=20, unique=True)
     is_traumatized = models.BooleanField(default=False)
 
     def __str__(self):
@@ -15,10 +16,12 @@ class TraitCategory(models.Model):
 
 
 class Trait(models.Model):
-    name = models.CharField(max_length=20)
-    description = models.CharField(max_length=200)
+    id = models.AutoField(primary_key=True)
+    name = models.CharField(max_length=20, unique=True)
+    description = models.CharField(max_length=200, unique=True)
     is_magic = models.BooleanField(default=False)
-    category = models.ForeignKey(TraitCategory, on_delete=models.CASCADE)
+    category = models.ForeignKey(
+        TraitCategory, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name

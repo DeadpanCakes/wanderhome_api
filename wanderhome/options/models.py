@@ -4,12 +4,14 @@ from django.db import models
 
 
 class Option(models.Model):
-    text = models.CharField(max_length=100)
-    non_magic_text = models.CharField(max_length=100, null=True, blank=True)
+    id = models.AutoField(primary_key=True)
+    text = models.CharField(max_length=100, unique=True)
+    non_magic_text = models.CharField(
+        max_length=100, null=True, blank=True, unique=True)
     non_traumatized_text = models.CharField(
-        max_length=100, null=True, blank=True)
+        max_length=100, null=True, blank=True, unique=True)
     non_traumatized_or_magic_text = models.CharField(
-        max_length=100, null=True, blank=True)
+        max_length=100, null=True, blank=True, unique=True)
     is_magical = models.BooleanField(default=False)
     is_traumatized = models.BooleanField(default=False)
 

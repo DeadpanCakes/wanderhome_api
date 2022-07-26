@@ -1,4 +1,4 @@
-from django.db.models import Model, CharField, ForeignKey, CASCADE
+from django.db.models import Model, CharField, ForeignKey, CASCADE, AutoField
 
 from options.models import Option
 
@@ -8,7 +8,8 @@ app_name = "playbooks"
 
 
 class Playbook(Model):
-    name = CharField(max_length=50)
+    id = AutoField(primary_key=True)
+    name = CharField(max_length=50, unique=True)
     desc = CharField(max_length=200)
 
     def __str__(self):
@@ -16,7 +17,8 @@ class Playbook(Model):
 
 
 class Animal(Model):
-    name = CharField(max_length=25)
+    id = AutoField(primary_key=True)
+    name = CharField(max_length=50, unique=True)
     playbook = ForeignKey(Playbook, on_delete=CASCADE)
 
     def __str__(self):
@@ -24,7 +26,8 @@ class Animal(Model):
 
 
 class Personality(Model):
-    prompt = CharField(max_length=200)
+    id = AutoField(primary_key=True)
+    prompt = CharField(max_length=200, unique=True)
     playbook = ForeignKey(Playbook, on_delete=CASCADE)
 
     def __str__(self):
@@ -32,7 +35,8 @@ class Personality(Model):
 
 
 class PersonalityOption(Model):
-    name = CharField(max_length=100)
+    id = AutoField(primary_key=True)
+    name = CharField(max_length=100, unique=True)
     personality = ForeignKey(Personality, on_delete=CASCADE)
 
     def __str__(self):
@@ -40,7 +44,8 @@ class PersonalityOption(Model):
 
 
 class Appearance(Model):
-    name = CharField(max_length=100)
+    id = AutoField(primary_key=True)
+    name = CharField(max_length=100, unique=True)
     playbook = ForeignKey(Playbook, on_delete=CASCADE)
 
     def __str__(self):
@@ -48,7 +53,8 @@ class Appearance(Model):
 
 
 class History(Model):
-    prompt = CharField(max_length=400)
+    id = AutoField(primary_key=True)
+    prompt = CharField(max_length=400, unique=True)
     playbook = ForeignKey(Playbook, on_delete=CASCADE)
 
     def __str__(self):
@@ -63,7 +69,8 @@ class HistoryOption(Option):
 
 
 class Relationship(Model):
-    prompt = CharField(max_length=100)
+    id = AutoField(primary_key=True)
+    prompt = CharField(max_length=100, unique=True)
     playbook = ForeignKey(Playbook, on_delete=CASCADE)
 
     def __str__(self):
@@ -71,7 +78,8 @@ class Relationship(Model):
 
 
 class SignatureMove(Model):
-    name = CharField(max_length=200)
+    id = AutoField(primary_key=True)
+    name = CharField(max_length=200, unique=True)
     playbook = ForeignKey(Playbook, on_delete=CASCADE)
 
     def __str__(self):
@@ -79,7 +87,8 @@ class SignatureMove(Model):
 
 
 class SeasonalMove(Model):
-    name = CharField(max_length=200)
+    id = AutoField(primary_key=True)
+    name = CharField(max_length=200, unique=True)
     playbook = ForeignKey(Playbook, on_delete=CASCADE)
 
     def __str__(self):
