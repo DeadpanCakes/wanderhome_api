@@ -28,6 +28,6 @@ urlpatterns = [
     path("", include(traitUrl)),
     path("", include(natureUrl)),
     path("", include(seasonUrl)),
-    path("", TokenObtainPairView.as_view(), name="token_obtain_pair"),
+    path("login/", TokenObtainPairView.as_view(), name="token_obtain_pair"),
     path("refresh/", TokenRefreshView.as_view(), name="token_refresh")
 ]
