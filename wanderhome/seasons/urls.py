@@ -2,7 +2,7 @@ from django.urls import include, path
 from rest_framework import routers
 from . import views
 
-router = routers.DefaultRouter()
+router = routers.SimpleRouter()
 router.register(r"seasons", views.SeasonViewSet)
 router.register(r"months", views.MonthViewSet)
 router.register(r"lacks", views.LackViewSet)

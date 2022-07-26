@@ -1,13 +1,13 @@
 from django.shortcuts import render
-from .models import Category, Trait, Move
+from .models import TraitCategory, Trait, Move
 from rest_framework import viewsets, permissions
-from traits.serializers import CategoriesSerializer, MovesSerializer, TraitsSerializer
+from traits.serializers import TraitCategoriesSerializer, MovesSerializer, TraitsSerializer
 
 # Create your views here.
-class CategoryViewSet(viewsets.ModelViewSet):
-    queryset = Category.objects.all()
+class TraitCategoryViewSet(viewsets.ModelViewSet):
+    queryset = TraitCategory.objects.all()
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
-    serializer_class = CategoriesSerializer
+    serializer_class = TraitCategoriesSerializer
 
 class TraitViewSet(viewsets.ModelViewSet):
     queryset = Trait.objects.prefetch_related("move_set")

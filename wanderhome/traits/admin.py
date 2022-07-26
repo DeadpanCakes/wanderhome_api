@@ -1,6 +1,6 @@
 from binascii import a2b_hex
 from django.contrib import admin
-from traits.models import Category, Trait, Move
+from traits.models import TraitCategory, Trait, Move
 
 # Register your models here.
-admin.site.register([Category, Trait, Move])
+admin.site.register([TraitCategory, Trait, Move])

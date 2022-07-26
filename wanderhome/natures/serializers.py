@@ -33,9 +33,9 @@ class NaturesSerializer(HyperlinkedModelSerializer):
         fields = ["url", "name", "aesthetic_set", "move_set", "lore_set"]
 
 
-class CategoriesSerializer(HyperlinkedModelSerializer):
+class NatureCategoriesSerializer(HyperlinkedModelSerializer):
     nature_set = NaturesSerializer(many=True, read_only=True)
 
     class Meta:
-        model = models.Category
+        model = models.NatureCategory
         fields = ["url", "name", "nature_set"]

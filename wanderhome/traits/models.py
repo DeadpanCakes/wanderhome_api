@@ -6,7 +6,7 @@ from options.models import Option
 app_name = "traits"
 
 
-class Category(models.Model):
+class TraitCategory(models.Model):
     name = models.CharField(max_length=20)
     is_traumatized = models.BooleanField(default=False)
 
@@ -18,7 +18,7 @@ class Trait(models.Model):
     name = models.CharField(max_length=20)
     description = models.CharField(max_length=200)
     is_magic = models.BooleanField(default=False)
-    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    category = models.ForeignKey(TraitCategory, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name

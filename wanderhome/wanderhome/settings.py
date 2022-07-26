@@ -30,7 +30,7 @@ DEBUG = True
 DEBUG_PROPAGATE_EXCEPTIONS = True
 
 
-ALLOWED_HOSTS = ["wanderhome.herokuapp.com"]
+ALLOWED_HOSTS = ["wanderhome.herokuapp.com", "localhost"]
 CORS_ALLOWED_ORIGINS = ["httop://localhost:3000"]
 
 

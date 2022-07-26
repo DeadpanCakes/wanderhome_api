@@ -1,4 +1,4 @@
-from .models import Category, Trait, Move
+from .models import TraitCategory, Trait, Move
 from rest_framework import serializers
 
 
@@ -17,9 +17,9 @@ class TraitsSerializer(serializers.HyperlinkedModelSerializer):
         fields = ["url", "name", "is_magic",  "description", "move_set"]
 
 
-class CategoriesSerializer(serializers.HyperlinkedModelSerializer):
+class TraitCategoriesSerializer(serializers.HyperlinkedModelSerializer):
     trait_set = TraitsSerializer(many=True, read_only=True)
 
     class Meta:
-        model = Category
+        model = TraitCategory
         fields = ["name", "is_traumatized", "trait_set"]

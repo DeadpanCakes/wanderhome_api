@@ -4,7 +4,7 @@ from options.models import Option
 # Create your models here.
 
 
-class Category(Model):
+class NatureCategory(Model):
     name = CharField(max_length=20)
 
     def __str__(self):
@@ -13,7 +13,7 @@ class Category(Model):
 
 class Nature(Model):
     name = CharField(max_length=20)
-    category = ForeignKey(Category, on_delete=CASCADE)
+    category = ForeignKey(NatureCategory, on_delete=CASCADE)
 
     def __str__(self):
         return self.name

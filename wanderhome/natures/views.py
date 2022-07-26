@@ -6,10 +6,10 @@ from . import models
 # Create your views here.
 
 
-class CategoryViewSet(viewsets.ModelViewSet):
-    queryset = models.Category.objects.all()
+class NatureCategoryViewSet(viewsets.ModelViewSet):
+    queryset = models.NatureCategory.objects.all()
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
-    serializer_class = serializers.CategoriesSerializer
+    serializer_class = serializers.NatureCategoriesSerializer
 
 
 class NatureViewSet(viewsets.ModelViewSet):

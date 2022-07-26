@@ -15,18 +15,19 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from traits import urls as traitsUrl
+from traits import urls as traitUrl
 from playbooks import urls as playbookUrl
 from natures import urls as natureUrl
 from seasons import urls as seasonUrl
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("", include(traitsUrl)),
     path("", include(playbookUrl)),
+    path("", include(traitUrl)),
     path("", include(natureUrl)),
     path("", include(seasonUrl)),
-    path("login/", TokenObtainPairView.as_view(), name="token_obtain_pair"),
+    path("", TokenObtainPairView.as_view(), name="token_obtain_pair"),
     path("refresh/", TokenRefreshView.as_view(), name="token_refresh")
 ]
