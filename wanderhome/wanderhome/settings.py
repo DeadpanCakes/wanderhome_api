@@ -31,6 +31,7 @@ DEBUG_PROPAGATE_EXCEPTIONS = True
 
 
 ALLOWED_HOSTS = ["wanderhome.herokuapp.com"]
+CORS_ALLOWED_ORIGINS = ["httop://localhost:3000"]
 
 
 # Application definition
@@ -42,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'corsheaders',
     "django_rename_app",
     "rest_framework",
     "playbooks",
@@ -59,6 +61,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'wanderhome.urls'
