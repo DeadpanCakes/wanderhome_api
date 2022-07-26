@@ -22,7 +22,7 @@ class Nature(Model):
 
 
 class Aesthetic(Option):
-    nature = ForeignKey(Nature, unique=True, on_delete=CASCADE)
+    nature = ForeignKey(Nature, on_delete=CASCADE)
 
     def __str__(self):
         return self.text
