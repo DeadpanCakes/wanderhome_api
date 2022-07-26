@@ -28,13 +28,14 @@ class HolidaysSerializer(HyperlinkedModelSerializer):
 
     class Meta:
         model = models.Holiday
-        fields = ["url", "tradition_set", "holiday_move_set", "custom_set"]
+        fields = ["url", "tradition_set",
+                  "holiday_move_set", "custom_set", "id"]
 
 
 class EffectMovesSerializer(HyperlinkedModelSerializer):
     class Meta:
         model = models.EffectMove
-        fields = ["url", "text"]
+        fields = ["url", "text", "id"]
 
 
 class EffectsSerializer(HyperlinkedModelSerializer):
@@ -42,7 +43,7 @@ class EffectsSerializer(HyperlinkedModelSerializer):
 
     class Meta:
         model = models.Effect
-        fields = ["url", "text", "effect_move_set"]
+        fields = ["url", "text", "effect_move_set", "id"]
 
 
 class EventsSerializer(HyperlinkedModelSerializer):
@@ -50,19 +51,19 @@ class EventsSerializer(HyperlinkedModelSerializer):
 
     class Meta:
         model = models.Event
-        fields = ["url", "name", "description", "trigger", "effect_set"]
+        fields = ["url", "name", "description", "trigger", "effect_set", "id"]
 
 
 class SignsSerializer(HyperlinkedModelSerializer):
     class Meta:
         model = models.Sign
-        fields = ["url", "text"]
+        fields = ["url", "text", "id"]
 
 
 class LacksSerializer(HyperlinkedModelSerializer):
     class Meta:
         model = models.Lack
-        fields = ["url", "text"]
+        fields = ["url", "text", "id"]
 
 
 class MonthsSerializer(HyperlinkedModelSerializer):
@@ -73,7 +74,7 @@ class MonthsSerializer(HyperlinkedModelSerializer):
     class Meta:
         model = models.Month
         fields = ["url", "name", "description",
-                  "lack_set", "sign_set", "event_set"]
+                  "lack_set", "sign_set", "event_set", "id"]
 
 
 class SeasonsSerializer(HyperlinkedModelSerializer):
@@ -82,4 +83,4 @@ class SeasonsSerializer(HyperlinkedModelSerializer):
 
     class Meta:
         model = models.Season
-        fields = ["url", "name", "month_set", "holiday_set"]
+        fields = ["url", "name", "month_set", "holiday_set", "id"]

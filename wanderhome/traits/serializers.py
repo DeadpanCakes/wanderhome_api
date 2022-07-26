@@ -6,7 +6,7 @@ class MovesSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Move
         fields = ["url", "text", "non_traumatized_text", "non_magic_text",
-                  "non_traumatized_or_magic_text", "is_magical", "is_traumatized"]
+                  "non_traumatized_or_magic_text", "is_magical", "is_traumatized", "id"]
 
 
 class TraitsSerializer(serializers.HyperlinkedModelSerializer):
@@ -14,7 +14,7 @@ class TraitsSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = Trait
-        fields = ["url", "name", "is_magic",  "description", "move_set"]
+        fields = ["url", "name", "is_magic",  "description", "move_set", "id"]
 
 
 class TraitCategoriesSerializer(serializers.HyperlinkedModelSerializer):
@@ -22,4 +22,4 @@ class TraitCategoriesSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = TraitCategory
-        fields = ["name", "is_traumatized", "trait_set"]
+        fields = ["name", "is_traumatized", "trait_set", "id"]

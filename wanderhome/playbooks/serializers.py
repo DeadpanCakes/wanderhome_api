@@ -5,13 +5,13 @@ from rest_framework.serializers import HyperlinkedModelSerializer
 class AnimalsSerializer(HyperlinkedModelSerializer):
     class Meta:
         model = models.Animal
-        fields = ["url", "name"]
+        fields = ["url", "name", "id"]
 
 
 class PersonalityOptionsSerializer(HyperlinkedModelSerializer):
     class Meta:
         model = models.PersonalityOption
-        fields = ["url", "name"]
+        fields = ["url", "name", "id"]
 
 
 class PersonalitiesSerializer(HyperlinkedModelSerializer):
@@ -19,19 +19,19 @@ class PersonalitiesSerializer(HyperlinkedModelSerializer):
 
     class Meta:
         model = models.Personality
-        fields = ["url", "prompt", "options_set"]
+        fields = ["url", "prompt", "options_set", "id"]
 
 
 class AppearancesSerializer(HyperlinkedModelSerializer):
     class Meta:
         model = models.Appearance
-        fields = ["url", "name"]
+        fields = ["url", "name", "id"]
 
 
 class HistoryOptionsSerializer(HyperlinkedModelSerializer):
     class Meta:
         model = models.HistoryOption
-        fields = ["url", "name"]
+        fields = ["url", "name", "id"]
 
 
 class HistoriesSerializer(HyperlinkedModelSerializer):
@@ -39,13 +39,13 @@ class HistoriesSerializer(HyperlinkedModelSerializer):
 
     class Meta:
         model = models.History
-        fields = ["url", "prompt", "options_set"]
+        fields = ["url", "prompt", "options_set", "id"]
 
 
 class RelationshipsSerializer(HyperlinkedModelSerializer):
     class Meta:
         model = models.Relationship
-        fields = ["url", "prompt"]
+        fields = ["url", "prompt", "id"]
 
 
 class SignaturueMovesSerializer(HyperlinkedModelSerializer):
@@ -72,4 +72,4 @@ class PlaybooksSerializer(HyperlinkedModelSerializer):
     class Meta:
         model = models.Playbook
         fields = ["url", "name", "desc", "animal_set", "personality_set", "appearance_set",
-                  "history_set", "relationship_set", "signature_moves_set", "seasonal_moves_set"]
+                  "history_set", "relationship_set", "signature_moves_set", "seasonal_moves_set", "id"]
