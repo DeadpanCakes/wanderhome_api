@@ -20,7 +20,7 @@ class Trait(models.Model):
     name = models.CharField(max_length=20, unique=True)
     description = models.CharField(max_length=200, unique=True)
     is_magic = models.BooleanField(default=False)
-    trait_category = models.ForeignKey(
+    category = models.ForeignKey(
         TraitCategory, on_delete=models.CASCADE)
 
     def __str__(self):
