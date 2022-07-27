@@ -10,7 +10,7 @@ class MovesSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class TraitsSerializer(serializers.HyperlinkedModelSerializer):
-    move_set = MovesSerializer(many=True)
+    move_set = MovesSerializer(many=True, read_only=True)
 
     class Meta:
         model = Trait
@@ -18,7 +18,7 @@ class TraitsSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class TraitCategoriesSerializer(serializers.HyperlinkedModelSerializer):
-    trait_set = TraitsSerializer(many=True)
+    trait_set = TraitsSerializer(many=True, read_only=True)
 
     class Meta:
         model = TraitCategory

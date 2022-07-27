@@ -21,11 +21,11 @@ class Trait(models.Model):
     description = models.CharField(max_length=200, unique=True)
     is_magic = models.BooleanField(default=False)
     category = models.ForeignKey(
-        TraitCategory, on_delete=models.CASCADE)
+        TraitCategory, on_delete=models.CASCADE, null=True)
 
     def __str__(self):
         return self.name
 
 
 class Move(Option):
-    trait = models.ForeignKey(Trait, on_delete=models.CASCADE)
+    trait = models.ForeignKey(Trait, on_delete=models.CASCADE, null=True)
