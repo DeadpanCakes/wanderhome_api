@@ -18,6 +18,7 @@ class TraitsSerializer(serializers.HyperlinkedModelSerializer):
     trait_move_set = TraitMovesSerializer(many=True, read_only=True)
 
     class Meta:
+        depth = 5
         model = Trait
         fields = ["url", "name", "is_magic",
                   "description", "category", "id", "trait_move_set"]
@@ -27,5 +28,6 @@ class TraitCategoriesSerializer(serializers.HyperlinkedModelSerializer):
     trait_set = TraitsSerializer(many=True, read_only=True)
 
     class Meta:
+        depth = 5
         model = TraitCategory
         fields = ["name", "is_traumatized", "id", "trait_set"]
