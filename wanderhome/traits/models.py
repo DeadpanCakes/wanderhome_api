@@ -27,5 +27,5 @@ class Trait(models.Model):
         return self.name
 
 
-class Move(Option):
+class TraitMove(Option):
     trait = models.ForeignKey(Trait, on_delete=models.CASCADE, null=True)

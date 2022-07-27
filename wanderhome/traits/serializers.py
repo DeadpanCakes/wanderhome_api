@@ -1,12 +1,13 @@
-from .models import TraitCategory, Trait, Move
+from .models import TraitCategory, Trait, TraitMove
 from rest_framework import serializers
 
 
-class MovesSerializer(serializers.HyperlinkedModelSerializer):
-    trait = serializers.PrimaryKeyRelatedField(queryset=Trait.objects.all())
+class TraitMovesSerializer(serializers.HyperlinkedModelSerializer):
+    trait = serializers.PrimaryKeyRelatedField(
+        queryset=TraitMove.objects.all())
 
     class Meta:
-        model = Move
+        model = TraitMove
         fields = ["url", "text", "non_traumatized_text", "non_magic_text",
                   "non_traumatized_or_magic_text", "is_magical", "is_traumatized", "id", "trait"]
 
