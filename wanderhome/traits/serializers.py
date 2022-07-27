@@ -14,6 +14,8 @@ class MovesSerializer(serializers.HyperlinkedModelSerializer):
 class TraitsSerializer(serializers.HyperlinkedModelSerializer):
     category = serializers.PrimaryKeyRelatedField(
         queryset=TraitCategory.objects.all())
+    move_set = serializers.PrimaryKeyRelatedField(
+        queryset=Move.objects.all())
 
     class Meta:
         model = Trait
