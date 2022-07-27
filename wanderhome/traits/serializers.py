@@ -4,7 +4,7 @@ from rest_framework import serializers
 
 class TraitMovesSerializer(serializers.HyperlinkedModelSerializer):
     trait = serializers.PrimaryKeyRelatedField(
-        queryset=TraitMove.objects.all())
+        queryset=Trait.objects.all())
 
     class Meta:
         model = TraitMove
