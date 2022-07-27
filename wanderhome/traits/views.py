@@ -18,7 +18,7 @@ class TraitViewSet(viewsets.ModelViewSet):
     serializer_class = TraitsSerializer
 
 
-class MoveViewSet(viewsets.ModelViewSet):
+class TraitMoveViewSet(viewsets.ModelViewSet):
     queryset = TraitMove.objects.all()
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     serializer_class = TraitMovesSerializer
