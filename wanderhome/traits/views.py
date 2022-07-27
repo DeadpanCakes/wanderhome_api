@@ -13,7 +13,7 @@ class TraitCategoryViewSet(viewsets.ModelViewSet):
 
 
 class TraitViewSet(viewsets.ModelViewSet):
-    queryset = Trait.objects.prefetch_related("move_set")
+    queryset = Trait.objects.all()
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     serializer_class = TraitsSerializer
 
