@@ -14,16 +14,14 @@ class MovesSerializer(serializers.HyperlinkedModelSerializer):
 class TraitsSerializer(serializers.HyperlinkedModelSerializer):
     category = serializers.PrimaryKeyRelatedField(
         queryset=TraitCategory.objects.all())
-    move_set = serializers.PrimaryKeyRelatedField(
-        queryset=Move.objects.all())
 
     class Meta:
         model = Trait
         fields = ["url", "name", "is_magic",
-                  "description", "category", "id", "move_set"]
+                  "description", "category", "id"]
 
 
 class TraitCategoriesSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = TraitCategory
-        fields = ["name", "is_traumatized", "id", "trait_set"]
+        fields = ["name", "is_traumatized", "id"]
