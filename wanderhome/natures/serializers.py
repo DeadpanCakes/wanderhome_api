@@ -10,7 +10,7 @@ class AestheticsSerializer(HyperlinkedModelSerializer):
     class Meta:
         model = models.Aesthetic
         fields = ["url", "text", "is_magical", "is_traumatized", "non_magic_text",
-                  "non_traumatized_text", "non_traumatized_or_magic_text", "id"]
+                  "non_traumatized_text", "non_traumatized_or_magic_text", "id", "nature"]
 
 
 class NatureMovesSerializer(HyperlinkedModelSerializer):
@@ -18,7 +18,7 @@ class NatureMovesSerializer(HyperlinkedModelSerializer):
 
     class Meta:
         model = models.NatureMove
-        fields = ["url", "prompt", "id"]
+        fields = ["url", "prompt", "id", "nature"]
 
 
 class LoreSerializer(HyperlinkedModelSerializer):
@@ -27,7 +27,7 @@ class LoreSerializer(HyperlinkedModelSerializer):
     class Meta:
         model = models.Lore
         fields = ["url", "text", "is_magical", "is_traumatized", "non_magic_text",
-                  "non_traumatized_text", "non_traumatized_or_magic_text", "id"]
+                  "non_traumatized_text", "non_traumatized_or_magic_text", "id", "nature"]
 
 
 class NaturesSerializer(HyperlinkedModelSerializer):
