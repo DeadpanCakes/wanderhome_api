@@ -1,6 +1,8 @@
 from . import models
 from rest_framework.serializers import HyperlinkedModelSerializer, PrimaryKeyRelatedField
 
+from wanderhome import playbooks
+
 
 class AnimalsSerializer(HyperlinkedModelSerializer):
     playbook = PrimaryKeyRelatedField(queryset=models.Playbook.objects.all())
@@ -21,7 +23,7 @@ class PersonalityOptionsSerializer(HyperlinkedModelSerializer):
 
 class PersonalitiesSerializer(HyperlinkedModelSerializer):
     options_set = PersonalityOptionsSerializer(many=True, read_only=True)
-    nature = PrimaryKeyRelatedField(queryset=models.Nature.objects.all())
+    playbook = PrimaryKeyRelatedField(queryset=models.Playbook.objects.all())
 
     class Meta:
         model = models.Personality
@@ -29,7 +31,7 @@ class PersonalitiesSerializer(HyperlinkedModelSerializer):
 
 
 class AppearancesSerializer(HyperlinkedModelSerializer):
-    nature = PrimaryKeyRelatedField(queryset=models.Nature.objects.all())
+    playbook = PrimaryKeyRelatedField(queryset=models.Playbook.objects.all())
 
     class Meta:
         model = models.Appearance
@@ -54,7 +56,7 @@ class HistoriesSerializer(HyperlinkedModelSerializer):
 
 
 class RelationshipsSerializer(HyperlinkedModelSerializer):
-    nature = PrimaryKeyRelatedField(queryset=models.Nature.objects.all())
+    playbook = PrimaryKeyRelatedField(queryset=models.Playbook.objects.all())
 
     class Meta:
         model = models.Relationship
@@ -62,7 +64,7 @@ class RelationshipsSerializer(HyperlinkedModelSerializer):
 
 
 class SignaturueMovesSerializer(HyperlinkedModelSerializer):
-    nature = PrimaryKeyRelatedField(queryset=models.Nature.objects.all())
+    playbook = PrimaryKeyRelatedField(queryset=models.Playbook.objects.all())
 
     class Meta:
         model = models.SignatureMove
@@ -70,7 +72,7 @@ class SignaturueMovesSerializer(HyperlinkedModelSerializer):
 
 
 class SeasonalMovesSerializer(HyperlinkedModelSerializer):
-    nature = PrimaryKeyRelatedField(queryset=models.Nature.objects.all())
+    playbook = PrimaryKeyRelatedField(queryset=models.Playbook.objects.all())
 
     class Meta:
         model = models.SeasonalMove
