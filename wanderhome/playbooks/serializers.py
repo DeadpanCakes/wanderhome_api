@@ -1,8 +1,6 @@
 from . import models
 from rest_framework.serializers import HyperlinkedModelSerializer, PrimaryKeyRelatedField
 
-from wanderhome import playbooks
-
 
 class AnimalsSerializer(HyperlinkedModelSerializer):
     playbook = PrimaryKeyRelatedField(queryset=models.Playbook.objects.all())
