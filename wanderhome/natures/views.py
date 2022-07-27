@@ -24,10 +24,10 @@ class AestheticViewSet(viewsets.ModelViewSet):
     serializer_class = serializers.AestheticsSerializer
 
 
-class MoveViewSet(viewsets.ModelViewSet):
-    queryset = models.Move.objects.all()
+class NatureMoveViewSet(viewsets.ModelViewSet):
+    queryset = models.NatureMove.objects.all()
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
-    serializer_class = serializers.MovesSerializer
+    serializer_class = serializers.NatureMovesSerializer
 
 
 class LoreViewSet(viewsets.ModelViewSet):
