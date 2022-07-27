@@ -3,7 +3,7 @@ from rest_framework import serializers
 
 
 class MovesSerializer(serializers.HyperlinkedModelSerializer):
-    trait = serializers.PrimaryKeyRelatedField()
+    trait = serializers.PrimaryKeyRelatedField(queryset=Trait.objects.all())
 
     class Meta:
         model = Move
@@ -12,7 +12,8 @@ class MovesSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class TraitsSerializer(serializers.HyperlinkedModelSerializer):
-    category = serializers.PrimaryKeyRelatedField()
+    category = serializers.PrimaryKeyRelatedField(
+        queryset=TraitCategory.objects.all())
 
     class Meta:
         model = Trait
