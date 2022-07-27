@@ -19,10 +19,10 @@ class TraitsSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Trait
         fields = ["url", "name", "is_magic",
-                  "description", "category", "id"]
+                  "description", "category", "id", "trait_move_set"]
 
 
 class TraitCategoriesSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = TraitCategory
-        fields = ["name", "is_traumatized", "id"]
+        fields = ["name", "is_traumatized", "id", "trait_set"]
