@@ -15,7 +15,8 @@ class TraitMovesSerializer(serializers.HyperlinkedModelSerializer):
 class TraitsSerializer(serializers.HyperlinkedModelSerializer):
     category = serializers.PrimaryKeyRelatedField(
         queryset=TraitCategory.objects.all())
-    move_set = TraitMovesSerializer(many=True, read_only=True)
+    move_set = TraitMovesSerializer(
+        many=True, read_only=True, source="traitmove_set")
 
     class Meta:
         depth = 5
