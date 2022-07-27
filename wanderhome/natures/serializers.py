@@ -28,7 +28,8 @@ class NaturesSerializer(HyperlinkedModelSerializer):
     aesthetic_set = AestheticsSerializer(many=True, read_only=True)
     move_set = NatureMovesSerializer(many=True, read_only=True)
     lore_set = LoreSerializer(many=True, read_only=True)
-    category = PrimaryKeyRelatedField(queryset=models.Category.objects.all())
+    category = PrimaryKeyRelatedField(
+        queryset=models.NatureCategory.objects.all())
 
     class Meta:
         model = models.Nature
