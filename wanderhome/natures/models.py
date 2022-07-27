@@ -15,14 +15,14 @@ class NatureCategory(Model):
 class Nature(Model):
     id = AutoField(primary_key=True)
     name = CharField(max_length=20, unique=True)
-    category = ForeignKey(NatureCategory, on_delete=CASCADE)
+    category = ForeignKey(NatureCategory, on_delete=CASCADE, null=True)
 
     def __str__(self):
         return self.name
 
 
 class Aesthetic(Option):
-    nature = ForeignKey(Nature, on_delete=CASCADE)
+    nature = ForeignKey(Nature, on_delete=CASCADE, null=True)
 
     def __str__(self):
         return self.text
@@ -31,14 +31,14 @@ class Aesthetic(Option):
 class NatureMove(Model):
     id = AutoField(primary_key=True)
     prompt = CharField(max_length=300)
-    nature = ForeignKey(Nature, on_delete=CASCADE)
+    nature = ForeignKey(Nature, on_delete=CASCADE, null=True)
 
     def __str__(self):
         return self.prompt
 
 
 class Lore(Option):
-    nature = ForeignKey(Nature, on_delete=CASCADE)
+    nature = ForeignKey(Nature, on_delete=CASCADE, null=True)
 
     def __str__(self):
         return self.text
