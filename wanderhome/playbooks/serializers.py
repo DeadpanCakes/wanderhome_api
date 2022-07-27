@@ -25,7 +25,7 @@ class PersonalitiesSerializer(HyperlinkedModelSerializer):
 
     class Meta:
         model = models.Personality
-        fields = ["url", "prompt", "options_set", "id", "nature"]
+        fields = ["url", "prompt", "options_set", "id", "playbook"]
 
 
 class AppearancesSerializer(HyperlinkedModelSerializer):
@@ -33,7 +33,7 @@ class AppearancesSerializer(HyperlinkedModelSerializer):
 
     class Meta:
         model = models.Appearance
-        fields = ["url", "name", "id", "nature"]
+        fields = ["url", "name", "id", "playbook"]
 
 
 class HistoryOptionsSerializer(HyperlinkedModelSerializer):
@@ -46,11 +46,11 @@ class HistoryOptionsSerializer(HyperlinkedModelSerializer):
 
 class HistoriesSerializer(HyperlinkedModelSerializer):
     options_set = HistoryOptionsSerializer(many=True, read_only=True)
-    nature = PrimaryKeyRelatedField(queryset=models.Nature.objects.all())
+    playbook = PrimaryKeyRelatedField(queryset=models.Playbook.objects.all())
 
     class Meta:
         model = models.History
-        fields = ["url", "prompt", "options_set", "id", "nature"]
+        fields = ["url", "prompt", "options_set", "id", "playbook"]
 
 
 class RelationshipsSerializer(HyperlinkedModelSerializer):
@@ -58,7 +58,7 @@ class RelationshipsSerializer(HyperlinkedModelSerializer):
 
     class Meta:
         model = models.Relationship
-        fields = ["url", "prompt", "id", "nature"]
+        fields = ["url", "prompt", "id", "playbook"]
 
 
 class SignaturueMovesSerializer(HyperlinkedModelSerializer):
