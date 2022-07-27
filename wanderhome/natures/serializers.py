@@ -5,6 +5,8 @@ from . import models
 
 
 class AestheticsSerializer(HyperlinkedModelSerializer):
+    nature = PrimaryKeyRelatedField(queryset=models.Nature.objects.all())
+
     class Meta:
         model = models.Aesthetic
         fields = ["url", "text", "is_magical", "is_traumatized", "non_magic_text",
@@ -12,12 +14,16 @@ class AestheticsSerializer(HyperlinkedModelSerializer):
 
 
 class NatureMovesSerializer(HyperlinkedModelSerializer):
+    nature = PrimaryKeyRelatedField(queryset=models.Nature.objects.all())
+
     class Meta:
         model = models.NatureMove
         fields = ["url", "prompt", "id"]
 
 
 class LoreSerializer(HyperlinkedModelSerializer):
+    nature = PrimaryKeyRelatedField(queryset=models.Nature.objects.all())
+
     class Meta:
         model = models.Lore
         fields = ["url", "text", "is_magical", "is_traumatized", "non_magic_text",

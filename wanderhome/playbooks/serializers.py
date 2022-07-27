@@ -1,60 +1,77 @@
 from . import models
-from rest_framework.serializers import HyperlinkedModelSerializer
+from rest_framework.serializers import HyperlinkedModelSerializer, PrimaryKeyRelatedField
 
 
 class AnimalsSerializer(HyperlinkedModelSerializer):
+    playbook = PrimaryKeyRelatedField(queryset=models.Playbook.objects.all())
+
     class Meta:
         model = models.Animal
-        fields = ["url", "name", "id"]
+        fields = ["url", "name", "id", "playbook"]
 
 
 class PersonalityOptionsSerializer(HyperlinkedModelSerializer):
+    personality = PrimaryKeyRelatedField(
+        queryset=models.Personality.objects.all())
+
     class Meta:
         model = models.PersonalityOption
-        fields = ["url", "name", "id"]
+        fields = ["url", "name", "id", "personality"]
 
 
 class PersonalitiesSerializer(HyperlinkedModelSerializer):
     options_set = PersonalityOptionsSerializer(many=True, read_only=True)
+    nature = PrimaryKeyRelatedField(queryset=models.Nature.objects.all())
 
     class Meta:
         model = models.Personality
-        fields = ["url", "prompt", "options_set", "id"]
+        fields = ["url", "prompt", "options_set", "id", "nature"]
 
 
 class AppearancesSerializer(HyperlinkedModelSerializer):
+    nature = PrimaryKeyRelatedField(queryset=models.Nature.objects.all())
+
     class Meta:
         model = models.Appearance
-        fields = ["url", "name", "id"]
+        fields = ["url", "name", "id", "nature"]
 
 
 class HistoryOptionsSerializer(HyperlinkedModelSerializer):
+    history = PrimaryKeyRelatedField(queryset=models.History.objects.all())
+
     class Meta:
         model = models.HistoryOption
-        fields = ["url", "name", "id"]
+        fields = ["url", "name", "id", "history"]
 
 
 class HistoriesSerializer(HyperlinkedModelSerializer):
     options_set = HistoryOptionsSerializer(many=True, read_only=True)
+    nature = PrimaryKeyRelatedField(queryset=models.Nature.objects.all())
 
     class Meta:
         model = models.History
-        fields = ["url", "prompt", "options_set", "id"]
+        fields = ["url", "prompt", "options_set", "id", "nature"]
 
 
 class RelationshipsSerializer(HyperlinkedModelSerializer):
+    nature = PrimaryKeyRelatedField(queryset=models.Nature.objects.all())
+
     class Meta:
         model = models.Relationship
-        fields = ["url", "prompt", "id"]
+        fields = ["url", "prompt", "id", "nature"]
 
 
 class SignaturueMovesSerializer(HyperlinkedModelSerializer):
+    nature = PrimaryKeyRelatedField(queryset=models.Nature.objects.all())
+
     class Meta:
         model = models.SignatureMove
         fields = "__all__"
 
 
 class SeasonalMovesSerializer(HyperlinkedModelSerializer):
+    nature = PrimaryKeyRelatedField(queryset=models.Nature.objects.all())
+
     class Meta:
         model = models.SeasonalMove
         fields = "__all__"
