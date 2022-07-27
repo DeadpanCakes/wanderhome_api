@@ -15,6 +15,7 @@ class TraitMovesSerializer(serializers.HyperlinkedModelSerializer):
 class TraitsSerializer(serializers.HyperlinkedModelSerializer):
     category = serializers.PrimaryKeyRelatedField(
         queryset=TraitCategory.objects.all())
+    trait_move_set = TraitMovesSerializer(many=True, read_only=True)
 
     class Meta:
         model = Trait
@@ -23,6 +24,8 @@ class TraitsSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class TraitCategoriesSerializer(serializers.HyperlinkedModelSerializer):
+    trait_set = TraitsSerializer(many=True, read_only=True)
+
     class Meta:
         model = TraitCategory
         fields = ["name", "is_traumatized", "id", "trait_set"]
