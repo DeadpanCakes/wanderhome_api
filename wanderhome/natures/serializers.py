@@ -1,5 +1,6 @@
 from pyexpat import model
-from rest_framework.serializers import HyperlinkedModelSerializer
+from unicodedata import category
+from rest_framework.serializers import HyperlinkedModelSerializer, PrimaryKeyRelatedField
 from . import models
 
 
@@ -27,10 +28,12 @@ class NaturesSerializer(HyperlinkedModelSerializer):
     aesthetic_set = AestheticsSerializer(many=True, read_only=True)
     move_set = NatureMovesSerializer(many=True, read_only=True)
     lore_set = LoreSerializer(many=True, read_only=True)
+    category = PrimaryKeyRelatedField(queryset=models.category.objects.all())
 
     class Meta:
         model = models.Nature
-        fields = ["url", "name", "aesthetic_set", "move_set", "lore_set", "id"]
+        fields = ["url", "name", "aesthetic_set",
+                  "move_set", "lore_set", "id", "category"]
 
 
 class NatureCategoriesSerializer(HyperlinkedModelSerializer):
