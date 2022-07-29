@@ -15,6 +15,7 @@ class NatureCategory(Model):
 class Nature(Model):
     id = AutoField(primary_key=True)
     name = CharField(max_length=20, unique=True)
+    description = CharField(max_length=200, unique=True)
     category = ForeignKey(NatureCategory, on_delete=CASCADE, null=True)
 
     def __str__(self):
