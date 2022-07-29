@@ -30,7 +30,7 @@ class Aesthetic(Option):
 
 class NatureMove(Model):
     id = AutoField(primary_key=True)
-    prompt = CharField(max_length=300)
+    text = CharField(max_length=300)
     nature = ForeignKey(Nature, on_delete=CASCADE, null=True)
 
     def __str__(self):

@@ -18,7 +18,7 @@ class Playbook(Model):
 
 class Animal(Model):
     id = AutoField(primary_key=True)
-    name = CharField(max_length=50, unique=True)
+    text = CharField(max_length=50, unique=True)
     playbook = ForeignKey(Playbook, on_delete=CASCADE)
 
     def __str__(self):
@@ -36,7 +36,7 @@ class Personality(Model):
 
 class PersonalityOption(Model):
     id = AutoField(primary_key=True)
-    name = CharField(max_length=100, unique=True)
+    text = CharField(max_length=100, unique=True)
     personality = ForeignKey(Personality, on_delete=CASCADE)
 
     def __str__(self):
@@ -45,7 +45,7 @@ class PersonalityOption(Model):
 
 class Appearance(Model):
     id = AutoField(primary_key=True)
-    name = CharField(max_length=100, unique=True)
+    text = CharField(max_length=100, unique=True)
     playbook = ForeignKey(Playbook, on_delete=CASCADE)
 
     def __str__(self):
@@ -70,7 +70,7 @@ class HistoryOption(Option):
 
 class Relationship(Model):
     id = AutoField(primary_key=True)
-    prompt = CharField(max_length=100, unique=True)
+    text = CharField(max_length=100, unique=True)
     playbook = ForeignKey(Playbook, on_delete=CASCADE)
 
     def __str__(self):
@@ -79,7 +79,7 @@ class Relationship(Model):
 
 class SignatureMove(Model):
     id = AutoField(primary_key=True)
-    name = CharField(max_length=200, unique=True)
+    text = CharField(max_length=200, unique=True)
     playbook = ForeignKey(Playbook, on_delete=CASCADE)
 
     def __str__(self):
@@ -88,7 +88,7 @@ class SignatureMove(Model):
 
 class SeasonalMove(Model):
     id = AutoField(primary_key=True)
-    name = CharField(max_length=200, unique=True)
+    text = CharField(max_length=200, unique=True)
     playbook = ForeignKey(Playbook, on_delete=CASCADE)
 
     def __str__(self):
