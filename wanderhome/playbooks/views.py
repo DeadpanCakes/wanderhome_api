@@ -24,6 +24,12 @@ class PersonalityViewSet (viewsets.ModelViewSet):
     serializer_class = serializers.PersonalitiesSerializer
 
 
+class PersonalityOptionViewSet (viewsets.ModelViewSet):
+    queryset = models.PersonalityOption.objects.all()
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    serializer_class = serializers.PersonalityOptionsSerializer
+
+
 class AppearanceViewSet (viewsets.ModelViewSet):
     queryset = models.Appearance.objects.all()
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
