@@ -1,5 +1,5 @@
 from . import models
-from rest_framework.serializers import HyperlinkedModelSerializer, PrimaryKeyRelatedField
+from rest_framework.serializers import HyperlinkedModelSerializer, PrimaryKeyRelatedField, SlugRelatedField
 
 
 class AnimalsSerializer(HyperlinkedModelSerializer):

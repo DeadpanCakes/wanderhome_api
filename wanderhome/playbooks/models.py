@@ -28,7 +28,7 @@ class Animal(Model):
 class Personality(Model):
     id = AutoField(primary_key=True)
     prompt = CharField(max_length=200, unique=True)
-    playbook = ForeignKey(Playbook, on_delete=CASCADE)
+    playbook = OneToOneField(Playbook, on_delete=CASCADE)
 
     def __str__(self):
         return self.prompt
@@ -37,7 +37,7 @@ class Personality(Model):
 class PersonalityOption(Model):
     id = AutoField(primary_key=True)
     text = CharField(max_length=100, unique=True)
-    personality = OneToOneField(Personality, on_delete=CASCADE)
+    personality = ForeignKey(Personality, on_delete=CASCADE)
 
     def __str__(self):
         return self.name
