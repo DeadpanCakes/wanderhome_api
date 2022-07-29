@@ -1,4 +1,3 @@
-from tkinter import ON
 from django.db.models import Model, CharField, ForeignKey, OneToOneField, CASCADE, AutoField
 
 from options.models import Option
