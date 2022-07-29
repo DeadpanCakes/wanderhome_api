@@ -83,8 +83,10 @@ class PlaybooksSerializer(HyperlinkedModelSerializer):
     appearance_set = AppearancesSerializer(many=True, read_only=True)
     history_set = HistoriesSerializer(many=True, read_only=True)
     relationship_set = RelationshipsSerializer(many=True, read_only=True)
-    signature_moves_set = SignaturueMovesSerializer(many=True, read_only=True)
-    seasonal_moves_set = SeasonalMovesSerializer(many=True, read_only=True)
+    signature_move_set = SignaturueMovesSerializer(
+        many=True, read_only=True, source="signaturemove_set")
+    seasonal_move_set = SeasonalMovesSerializer(
+        many=True, read_only=True, source="seasonalmove_set")
 
     class Meta:
         model = models.Playbook

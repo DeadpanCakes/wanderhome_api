@@ -29,7 +29,8 @@ class TraditionsSerializer(HyperlinkedModelSerializer):
 class HolidaysSerializer(HyperlinkedModelSerializer):
     season = PrimaryKeyRelatedField(queryset=models.Season.objects.all())
     tradition_set = TraditionsSerializer(many=True, read_only=True)
-    holiday_move_set = HolidayMovesSerializer(many=True, read_only=True)
+    holiday_move_set = HolidayMovesSerializer(
+        many=True, read_only=True, source="holidaymove_set")
     custom_set = CustomsSerializer(many=True, read_only=True)
 
     class Meta:
@@ -48,7 +49,8 @@ class EffectMovesSerializer(HyperlinkedModelSerializer):
 
 class EffectsSerializer(HyperlinkedModelSerializer):
     event = PrimaryKeyRelatedField(queryset=models.Event.objects.all())
-    effect_move_set = EffectMovesSerializer(many=True, read_only=True)
+    effect_move_set = EffectMovesSerializer(
+        many=True, read_only=True, source="effectmove_set")
 
     class Meta:
         model = models.Effect
