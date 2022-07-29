@@ -79,7 +79,7 @@ class SeasonalMovesSerializer(HyperlinkedModelSerializer):
 
 class PlaybooksSerializer(HyperlinkedModelSerializer):
     animal_set = AnimalsSerializer(many=True, read_only=True)
-    personality_set = PersonalitiesSerializer(many=True, read_only=True)
+    personality = PersonalitiesSerializer(read_only=True)
     appearance_set = AppearancesSerializer(many=True, read_only=True)
     history_set = HistoriesSerializer(many=True, read_only=True)
     relationship_set = RelationshipsSerializer(many=True, read_only=True)
@@ -90,5 +90,5 @@ class PlaybooksSerializer(HyperlinkedModelSerializer):
 
     class Meta:
         model = models.Playbook
-        fields = ["url", "name", "description", "animal_set", "personality_set", "appearance_set",
+        fields = ["url", "name", "description", "animal_set", "personality", "appearance_set",
                   "history_set", "relationship_set", "signature_move_set", "seasonal_move_set", "id"]

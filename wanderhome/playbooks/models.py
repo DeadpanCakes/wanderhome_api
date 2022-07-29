@@ -1,4 +1,5 @@
-from django.db.models import Model, CharField, ForeignKey, CASCADE, AutoField
+from tkinter import ON
+from django.db.models import Model, CharField, ForeignKey, OneToOneField, CASCADE, AutoField
 
 from options.models import Option
 
@@ -37,7 +38,7 @@ class Personality(Model):
 class PersonalityOption(Model):
     id = AutoField(primary_key=True)
     text = CharField(max_length=100, unique=True)
-    personality = ForeignKey(Personality, on_delete=CASCADE)
+    personality = OneToOneField(Personality, on_delete=CASCADE)
 
     def __str__(self):
         return self.name
