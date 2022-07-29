@@ -18,7 +18,7 @@ class NatureMovesSerializer(HyperlinkedModelSerializer):
 
     class Meta:
         model = models.NatureMove
-        fields = ["url", "prompt", "id", "nature"]
+        fields = ["url", "text", "id", "nature"]
 
 
 class LoreSerializer(HyperlinkedModelSerializer):
