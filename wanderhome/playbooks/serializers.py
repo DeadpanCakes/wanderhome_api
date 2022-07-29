@@ -91,4 +91,4 @@ class PlaybooksSerializer(HyperlinkedModelSerializer):
     class Meta:
         model = models.Playbook
         fields = ["url", "name", "desc", "animal_set", "personality_set", "appearance_set",
-                  "history_set", "relationship_set", "signature_moves_set", "seasonal_moves_set", "id"]
+                  "history_set", "relationship_set", "signature_move_set", "seasonal_move_set", "id"]
