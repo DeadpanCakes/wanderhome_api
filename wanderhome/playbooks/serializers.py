@@ -20,7 +20,7 @@ class PersonalityOptionsSerializer(HyperlinkedModelSerializer):
 
 
 class PersonalitiesSerializer(HyperlinkedModelSerializer):
-    options_set = PersonalityOptionsSerializer(
+    option_set = PersonalityOptionsSerializer(
         many=True, read_only=True, source="personalityoption_set")
     playbook = PrimaryKeyRelatedField(queryset=models.Playbook.objects.all())
 
@@ -46,7 +46,8 @@ class HistoryOptionsSerializer(HyperlinkedModelSerializer):
 
 
 class HistoriesSerializer(HyperlinkedModelSerializer):
-    options_set = HistoryOptionsSerializer(many=True, read_only=True)
+    option_set = HistoryOptionsSerializer(
+        many=True, read_only=True, source="historyoption_set")
     playbook = PrimaryKeyRelatedField(queryset=models.Playbook.objects.all())
 
     class Meta:

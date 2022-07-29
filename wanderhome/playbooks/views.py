@@ -42,6 +42,12 @@ class HistoryViewSet (viewsets.ModelViewSet):
     serializer_class = serializers.HistoriesSerializer
 
 
+class HistoryOptionViewSet (viewsets.ModelViewSet):
+    queryset = models.HistoryOption.objects.all()
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    serializer_class = serializers.HistoriesSerializer
+
+
 class RelationshipViewSet (viewsets.ModelViewSet):
     queryset = models.Relationship.objects.all()
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
