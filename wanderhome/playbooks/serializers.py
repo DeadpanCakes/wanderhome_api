@@ -20,7 +20,8 @@ class PersonalityOptionsSerializer(HyperlinkedModelSerializer):
 
 
 class PersonalitiesSerializer(HyperlinkedModelSerializer):
-    options_set = PersonalityOptionsSerializer(many=True, read_only=True)
+    options_set = PersonalityOptionsSerializer(
+        many=True, read_only=True, source="personalityoption_set")
     playbook = PrimaryKeyRelatedField(queryset=models.Playbook.objects.all())
 
     class Meta:
