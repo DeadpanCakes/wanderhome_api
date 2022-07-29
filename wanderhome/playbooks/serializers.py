@@ -26,7 +26,7 @@ class PersonalitiesSerializer(HyperlinkedModelSerializer):
 
     class Meta:
         model = models.Personality
-        fields = ["url", "prompt", "options_set", "id", "playbook"]
+        fields = ["url", "prompt", "option_set", "id", "playbook"]
 
 
 class AppearancesSerializer(HyperlinkedModelSerializer):
@@ -52,7 +52,7 @@ class HistoriesSerializer(HyperlinkedModelSerializer):
 
     class Meta:
         model = models.History
-        fields = ["url", "prompt", "options_set", "id", "playbook"]
+        fields = ["url", "prompt", "option_set", "id", "playbook"]
 
 
 class RelationshipsSerializer(HyperlinkedModelSerializer):
