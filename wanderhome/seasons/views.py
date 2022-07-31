@@ -31,7 +31,7 @@ class SignViewSet(viewsets.ModelViewSet):
 class EventViewSet(viewsets.ModelViewSet):
     queryset = models.Event.objects.all()
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
-    serializer_class = serializers.EffectsSerializer
+    serializer_class = serializers.EventsSerializer
 
 
 class EffectViewSet(viewsets.ModelViewSet):
