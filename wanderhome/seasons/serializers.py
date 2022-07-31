@@ -87,12 +87,12 @@ class MonthsSerializer(HyperlinkedModelSerializer):
     season = PrimaryKeyRelatedField(queryset=models.Season.objects.all())
     lack_set = LacksSerializer(many=True, read_only=True)
     sign_set = SignsSerializer(many=True, read_only=True)
-    event_set = EventsSerializer(many=True, read_only=True)
+    event = EventsSerializer(read_only=True)
 
     class Meta:
         model = models.Month
         fields = ["url", "name", "description",
-                  "lack_set", "sign_set", "event_set", "id", "season"]
+                  "lack_set", "sign_set", "event", "id", "season"]
 
 
 class SeasonsSerializer(HyperlinkedModelSerializer):

@@ -1,4 +1,4 @@
-from django.db.models import Model, CharField, ForeignKey, CASCADE, AutoField
+from django.db.models import Model, CharField, ForeignKey, CASCADE, AutoField, OneToOneField
 
 # Create your models here.
 
@@ -44,7 +44,7 @@ class Event(Model):
     name = CharField(max_length=100, unique=True)
     description = CharField(max_length=400, unique=True)
     trigger = CharField(max_length=400, unique=True)
-    month = ForeignKey(Month, on_delete=CASCADE)
+    month = OneToOneField(Month, on_delete=CASCADE)
 
     def __str__(self):
         return self.name
