@@ -88,7 +88,7 @@ class SignatureMove(Model):
 
 class SeasonalMove(Model):
     id = AutoField(primary_key=True)
-    text = CharField(max_length=200, unique=True)
+    text = CharField(max_length=500, unique=True)
     playbook = ForeignKey(Playbook, on_delete=CASCADE)
 
     def __str__(self):
