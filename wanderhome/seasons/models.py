@@ -72,6 +72,7 @@ class Holiday(Model):
     id = AutoField(primary_key=True)
     name = CharField(max_length=100, unique=True)
     description = CharField(max_length=400)
+    season = ForeignKey(Season, on_delete=CASCADE)
 
     def __str__(self):
         return self.name
