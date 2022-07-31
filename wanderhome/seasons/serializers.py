@@ -35,7 +35,7 @@ class HolidaysSerializer(HyperlinkedModelSerializer):
 
     class Meta:
         model = models.Holiday
-        fields = ["url", "tradition_set",
+        fields = ["url", "name", "description", "tradition_set",
                   "holiday_move_set", "custom_set", "id", "season"]
 
 
