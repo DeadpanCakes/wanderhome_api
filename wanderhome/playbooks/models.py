@@ -10,7 +10,7 @@ app_name = "playbooks"
 class Playbook(Model):
     id = AutoField(primary_key=True)
     name = CharField(max_length=50, unique=True)
-    description = CharField(max_length=200)
+    description = CharField(max_length=500)
 
     def __str__(self):
         return self.name
