@@ -68,7 +68,7 @@ class SignaturueMovesSerializer(HyperlinkedModelSerializer):
 
     class Meta:
         model = models.SignatureMove
-        fields = "__all__"
+        fields = ["url", "text", "playbook", "id"]
 
 
 class SeasonalMovesSerializer(HyperlinkedModelSerializer):
@@ -76,7 +76,7 @@ class SeasonalMovesSerializer(HyperlinkedModelSerializer):
 
     class Meta:
         model = models.SeasonalMove
-        fields = "__all__"
+        fields = ["url", "text", "playbook", "id"]
 
 
 class PlaybooksSerializer(HyperlinkedModelSerializer):
