@@ -36,7 +36,7 @@ class Personality(Model):
 
 class PersonalityOption(Model):
     id = AutoField(primary_key=True)
-    text = CharField(max_length=100, unique=True)
+    text = CharField(max_length=100)
     personality = ForeignKey(Personality, on_delete=CASCADE)
 
     def __str__(self):
