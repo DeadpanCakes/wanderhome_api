@@ -5,7 +5,7 @@ from django.db import models
 
 class Option(models.Model):
     id = models.AutoField(primary_key=True)
-    text = models.CharField(max_length=100)
+    text = models.CharField(max_length=500)
     non_magic_text = models.CharField(
         max_length=100, null=True, blank=True)
     non_traumatized_text = models.CharField(
