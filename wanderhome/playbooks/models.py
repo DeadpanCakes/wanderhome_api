@@ -18,7 +18,7 @@ class Playbook(Model):
 
 class Animal(Model):
     id = AutoField(primary_key=True)
-    text = CharField(max_length=50, unique=True)
+    text = CharField(max_length=50)
     playbook = ForeignKey(Playbook, on_delete=CASCADE)
 
     def __str__(self):
