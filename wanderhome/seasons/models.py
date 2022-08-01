@@ -32,7 +32,7 @@ class Lack(Model):
 
 class Sign(Model):
     id = AutoField(primary_key=True)
-    text = CharField(max_length=400, unique=True)
+    text = CharField(max_length=400)
     month = ForeignKey(Month, on_delete=CASCADE)
 
     def __str__(self):
