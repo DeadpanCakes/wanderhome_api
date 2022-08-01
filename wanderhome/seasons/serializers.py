@@ -7,7 +7,7 @@ class CustomsSerializer(HyperlinkedModelSerializer):
 
     class Meta:
         model = models.Custom
-        fields = ["url", "text", "holiday"]
+        fields = ["url", "text", "holiday", "id"]
 
 
 class HolidayMovesSerializer(HyperlinkedModelSerializer):
@@ -15,7 +15,7 @@ class HolidayMovesSerializer(HyperlinkedModelSerializer):
 
     class Meta:
         model = models.HolidayMove
-        fields = ["url", "text", "holiday"]
+        fields = ["url", "text", "holiday", "id"]
 
 
 class TraditionsSerializer(HyperlinkedModelSerializer):
@@ -23,7 +23,7 @@ class TraditionsSerializer(HyperlinkedModelSerializer):
 
     class Meta:
         model = models.Tradition
-        fields = ["url", "text", "holiday"]
+        fields = ["url", "text", "holiday", "id"]
 
 
 class HolidaysSerializer(HyperlinkedModelSerializer):
