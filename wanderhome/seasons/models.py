@@ -43,7 +43,7 @@ class Event(Model):
     id = AutoField(primary_key=True)
     name = CharField(max_length=100, unique=True)
     description = CharField(max_length=400, unique=True)
-    trigger = CharField(max_length=400, unique=True)
+    trigger = CharField(max_length=600, unique=True)
     month = OneToOneField(Month, on_delete=CASCADE)
 
     def __str__(self):
